@@ -1,4 +1,3 @@
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
@@ -14,6 +13,7 @@ import Kebab from "../assets/kebab.jpg";
 import Pancakes from "../assets/pancakes.jpg";
 import Ribs from "../assets/ribs.jpg";
 import Salad from "../assets/salad.jpg";
+
 function Gallery() {
   const images = [
     { src: Burger, name: "Burger" },
@@ -30,41 +30,41 @@ function Gallery() {
   ];
 
   return (
-    <div id="gallery" className="container bg-slate mx-auto p-2">
-      <h2 className="text-6xl  font-title mb-6 text-center text-gold">
-Our Specialities
+    <div id="gallery" className="bg-slate mx-auto py-12 px-4 lg:px-8 overflow-hidden">
+      <h2 className="text-4xl md:text-6xl font-title mb-8 text-center text-gold">
+        Our Specialities
       </h2>
       <Swiper
         modules={[Navigation]}
         navigation
-        spaceBetween={30}
-        slidesPerView={1}
+        spaceBetween={16}
+        breakpoints={{
+          0: { slidesPerView: 1 },
+          640: { slidesPerView: 2 }, 
+          1024: { slidesPerView: 3 }, 
+        }}
         className="w-full"
       >
-        {Array.from({ length: Math.ceil(images.length / 6) }, (_, i) => (
-          <SwiperSlide key={i}>
-            <div className="grid grid-cols-3 gap-4 ">
-              {images.slice(i * 6, i * 6 + 6).map((image, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col items-center transition-transform duration-300 hover:scale-105"
-                >
-                  <img
-                    src={image.src}
-                    alt={image.name}
-                    className="rounded-xl w-96 h-60 object-cover shadow-lg"
-                  />
-                  <p className="mt-3 text-xl font-serif text-white">
-                    {image.name}
-                  </p>
-                </div>
-              ))}
+        {images.map((image, index) => (
+          <SwiperSlide key={index}>
+            <div className="flex flex-col items-center transition-transform duration-300 hover:scale-105">
+          
+              <div className="w-72 h-48">
+                <img
+                  src={image.src}
+                  alt={image.name}
+                  className="object-cover w-full h-full rounded-xl shadow-lg"
+                />
+              </div>
+              <p className="mt-3 text-lg md:text-xl font-serif text-white">
+                {image.name}
+              </p>
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
     </div>
   );
-};
+}
 
 export default Gallery;

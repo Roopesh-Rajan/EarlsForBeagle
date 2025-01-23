@@ -11,7 +11,7 @@ function Header() {
         <nav
           className={`${
             isMenuOpen ? "flex" : "hidden"
-          } md:flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-8 md:static absolute top-16 left-0 w-full md:w-auto bg-[#ded6d6] md:bg-transparent md:shadow-none shadow-lg z-50 transition-all ease-in-out duration-300`}
+          } md:flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-8 md:static absolute top-16 left-0 w-full md:w-auto bg-zinc-900 md:bg-transparent md:shadow-none shadow-lg z-50 transition-all ease-in-out duration-300`}
         >
           <a href="#home" className="text-white hover:text-gold px-4 py-2 md:px-0">
             Home

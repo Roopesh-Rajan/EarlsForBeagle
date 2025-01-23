@@ -23,24 +23,20 @@ const Blogs = () => {
   ];
 
   return (
-    <section className="py-16 bg-slate px-32">
-      <div className="container mx-auto px-6">
-        <div className="text-left">
-          <div>
-            <h4 className="text-5xl font-semibold mb-2 text-gold font-title">Blogs</h4>
-            <h3 className="text-4xl font-bold text-white mb-6">
-              Latest <span className="text-gold font-Rubik">Updates</span>
-            </h3>
-            <p className="text-gray-400">
-              Sed gravida nisl a porta tincidunt. Integer aliquam nisi sit amet <br />
-              magna suscipit.
-            </p>
-          </div>
-          <div>
-            <img src={Swoosh} alt="swoosh" className="relative w-20 py-12" />
-          </div>
+    <section className="py-10 px-4 bg-slate">
+      <div className="container mx-auto">
+        <div className="text-center mb-10">
+          <h4 className="text-4xl font-semibold mb-2 text-gold font-title">Blogs</h4>
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+            Latest <span className="text-gold font-Rubik">Updates</span>
+          </h3>
+          <p className="text-gray-400 text-sm md:text-base">
+            Sed gravida nisl a porta tincidunt. Integer aliquam nisi sit amet <br className="hidden md:block" />
+            magna suscipit.
+          </p>
+          <img src={Swoosh} alt="swoosh" className="w-16 md:w-20 mx-auto py-6" />
         </div>
-        <div className="grid md:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 lg:px-24">
           {blogPosts.map((post) => (
             <BlogCard
               key={post.id}
@@ -55,14 +51,16 @@ const Blogs = () => {
     </section>
   );
 };
-
 // eslint-disable-next-line no-unused-vars
 const BlogCard = ({ title, date, category, image }) => {
   return (
-    <div id="blog"  className="bg-blueblack text-white rounded-xl shadow-md overflow-hidden transition-transform transform hover:scale-105 hover:shadow-lg">
-      <img src={image} alt={title} className="w-full h-72 object-cover" />
-      <div className="p-6 text-left">
-        <div className="flex items-center text-gray-400 text-sm space-x-4 mb-4">
+    <div
+      id="blog"
+      className="bg-blueblack text-white rounded-lg shadow-md overflow-hidden transition-transform transform hover:scale-105 hover:shadow-lg"
+    >
+      <img src={image} alt={title} className="w-full h-48 md:h-56 lg:h-64 object-cover" />
+      <div className="p-4 md:p-6 text-left">
+        <div className="flex flex-wrap items-center text-gray-400 text-sm space-x-4 mb-4">
           <div className="flex items-center space-x-1">
             <FaRegUser />
             <span>Admin</span>
@@ -76,8 +74,8 @@ const BlogCard = ({ title, date, category, image }) => {
             <span>2 Comments</span>
           </div>
         </div>
-        <h4 className="text-xl font-semibold mb-2">{title}</h4>
-        <p className="text-gray-400 mb-4">
+        <h4 className="text-lg md:text-xl font-semibold mb-2">{title}</h4>
+        <p className="text-gray-400 text-sm md:text-base mb-4">
           Sed gravida nisl a porta tincidunt. Integer aliquam nisi sit amet magna
           suscipit, fermentum mattis erat rutrum.
         </p>
@@ -88,6 +86,5 @@ const BlogCard = ({ title, date, category, image }) => {
     </div>
   );
 };
-
 
 export default Blogs;
